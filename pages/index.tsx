@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 // comp
-import { Header, Hero, About, Experience, Skills, Projects } from "../components";
+import { Header, Hero, About, Experience, Skills, Projects, Contacts } from "../components";
 
 export default function Home() {
   return (
@@ -38,6 +38,9 @@ export default function Home() {
       </section>
 
       {/* Contact me */}
+      <section id="contacts" className="snap-start">
+        <Contacts />
+      </section>
     </div>
   );
 }
