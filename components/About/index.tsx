@@ -28,14 +28,15 @@ const About = (props: Props) => {
         transition={{
           duration: 1.5,
         }}
+        viewport={{ once: true }}
         src={
           "https://scontent-los2-1.xx.fbcdn.net/v/t1.6435-9/48415617_927193357668686_7951508151788896256_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=SmAoS_8W_0UAX8tofZC&_nc_ht=scontent-los2-1.xx&oh=00_AfCDPS-WCE86ufD8H7F2wwb6bIa_WwWUBtBsw-5Tqht1kw&oe=6412FF7E"
         }
-        className="mt-28 object-cover md:mb-0 flex-shrink-0 w-56 h-56 rounded-full md:rounded-lg md:w-64 md:h-96 xl:w-[400px] xl:h-[400px]"
+        className="mt-28 object-cover md:mb-0 flex-shrink-0 w-40 h-40 sm:w-56 sm:h-56 rounded-full md:rounded-lg md:w-64 md:h-96 xl:w-[400px] xl:h-[400px]"
       />
 
       <div className="space-y-10 px-0 md:px-10">
-        <h4 className="text-4xl font-semibold">
+        <h4 className="text-xl sm:text-4xl font-semibold">
           Here's a{" "}
           <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
           background
