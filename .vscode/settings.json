@@ -1,5 +1,3 @@
 {
-    "marquee.widgets.npm-stats.packageNames": [
-        "next-portfolio-2.0"
-    ]
+  "marquee.widgets.npm-stats.packageNames": ["next-portfolio-2.0"],
 }

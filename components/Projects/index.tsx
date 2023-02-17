@@ -12,7 +12,7 @@ const Projects = (props: Props) => {
         Projects
       </h3>
 
-      <div className="sm:mt-0 mt-5 relative flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20">
+      <div className="sm:mt-0 mt-5 relative flex overflow-x-scroll  scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin overflow-y-hidden snap-x snap-mandatory z-20">
         {projects.map((project, i) => (
           <motion.div
             key={project}
