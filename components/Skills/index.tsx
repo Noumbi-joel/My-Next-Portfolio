@@ -31,7 +31,7 @@ const Skills = ({ skills }: Props) => {
           <SkillComp key={skill._id} skill={skill} directionLeft />
         ))}
         {skills.slice(13, skills.length)?.map((skill) => (
-          <SkillComp key={skill._id} skill={skill} />
+          <SkillComp key={skill._id} skill={skill} directionLeft={false} />
         ))}
       </div>
     </motion.div>
