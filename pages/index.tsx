@@ -42,31 +42,31 @@ export default function Home({
         <title>NKJY - Portfolio</title>
       </Head>
 
-      <Header socials={socials} resume={pageInfo.resume} />
+      <Header socials={socials??null} resume={pageInfo.resume??null} />
 
       {/* Hero */}
       <section id="hero" className="snap-start">
-        <Hero pageInfo={pageInfo} />
+        <Hero pageInfo={pageInfo??null} />
       </section>
 
       {/* About */}
       <section id="about" className="snap-center">
-        <About pageInfo={pageInfo} />
+        <About pageInfo={pageInfo??null} />
       </section>
 
       {/* Experience */}
       <section id="experience" className="snap-center">
-        <Experiences experiences={experiences} />
+        <Experiences experiences={experiences??null} />
       </section>
 
       {/* Skills */}
       <section id="skills" className="snap-start">
-        <Skills skills={skills} />
+        <Skills skills={skills??null} />
       </section>
 
       {/* Projects */}
       <section id="projects" className="snap-start">
-        <Projects projects={projects} />
+        <Projects projects={projects??null} />
       </section>
 
       {/* Contact me */}
@@ -90,14 +90,6 @@ export default function Home({
     </div>
   );
 }
-
-Home.defaultProps = {
-  pageInfo: null,
-  experiences: null,
-  skills: null,
-  projects: null,
-  socials: null,
-};
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
