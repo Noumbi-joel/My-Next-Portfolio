@@ -91,6 +91,14 @@ export default function Home({
   );
 }
 
+Home.defaultProps = {
+  pageInfo: null,
+  experiences: null,
+  skills: null,
+  projects: null,
+  socials: null,
+};
+
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
   const skills: Skill[] = await fetchSkills();
