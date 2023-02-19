@@ -11,7 +11,7 @@ type Props = {
 
 const ExperienceCard = ({ experience }: Props) => {
   return (
-    <article className="overflow-y-scroll  scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin cursor-pointer transition-opacity duration-200 opacity-40 hover:opacity-100 flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center p-10 bg-[#292929]">
+    <article className="overflow-y-scroll scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin cursor-pointer transition-opacity duration-200 opacity-40 hover:opacity-100 flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center p-10 bg-[#292929]">
       <motion.img
         initial={{ opacity: 0, y: -100 }}
         whileInView={{
@@ -27,7 +27,7 @@ const ExperienceCard = ({ experience }: Props) => {
         <h4 className="text-4xl font-light">{experience?.jobTitle}</h4>
         <p className="font-bold text-2xl mt-1">{experience?.company}</p>
         <div className="flex space-x-2 my-2">
-          {experience?.technologies.map((tech) => (
+          {experience?.technologies?.map((tech) => (
             <Image
               key={tech?._id}
               className="rounded-full object-cover"
@@ -45,8 +45,8 @@ const ExperienceCard = ({ experience }: Props) => {
             : "Now"}
         </p>
         <ul className="list-disc space-y-4 ml-5 text-lg">
-          {experience?.points.map((point) => (
-            <li>{point}</li>
+          {experience?.points?.map((point) => (
+            <li key={point}>{point}</li>
           ))}
         </ul>
       </div>

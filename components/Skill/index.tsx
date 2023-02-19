@@ -9,7 +9,7 @@ type Props = {
   skill: Skill;
 };
 
-const Skill = ({ directionLeft, skill }: Props) => {
+const SkillComp = ({ directionLeft, skill }: Props) => {
   return (
     <div className="group relative flex cursor-pointer sm:top-16 top-5">
       <motion.img
@@ -29,4 +29,4 @@ const Skill = ({ directionLeft, skill }: Props) => {
   );
 };
 
-export default Skill;
+export default SkillComp;

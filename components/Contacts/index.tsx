@@ -1,7 +1,5 @@
 import React from "react";
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
-
-import { motion } from "framer-motion";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 type Props = {};
@@ -14,12 +12,7 @@ type Inputs = {
 };
 
 const Contacts = (props: Props) => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     window.location.href = `mailto:joelnoumbi28@gmail.com&subject=${data.subject}&body=Hi my name is ${data.name}, ${data.message} (${data.email})`;
   };

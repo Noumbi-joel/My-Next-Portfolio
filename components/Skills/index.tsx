@@ -27,10 +27,10 @@ const Skills = ({ skills }: Props) => {
       </h3>
 
       <div className="mt-28 grid grid-cols-4 gap-5">
-        {skills.slice(0, 12).map((skill) => (
+        {skills.slice(0, 12)?.map((skill) => (
           <SkillComp key={skill._id} skill={skill} directionLeft />
         ))}
-        {skills.slice(13, skills.length).map((skill) => (
+        {skills.slice(13, skills.length)?.map((skill) => (
           <SkillComp key={skill._id} skill={skill} />
         ))}
       </div>
