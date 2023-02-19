@@ -5,18 +5,19 @@ import React from "react";
 // writer
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 
-//image
-import moi from "../../assets/jpg/moi.jpg";
-
 // comp
 import { BackgroundCircles } from "..";
+import { PageInfo } from "../../typings";
+import { urlFor } from "../../lib/sanity";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-const Hero = (props: Props) => {
+const Hero = ({ pageInfo }: Props) => {
   const [text, count] = useTypewriter({
     words: [
-      "Hi, The Name's Joel Yvan 🖐️",
+      `Hi, The Name's ${pageInfo?.name} 🖐️`,
       "Like Coffee.tsx ☕",
       "<PapaReact /> 😀",
     ],
@@ -27,14 +28,16 @@ const Hero = (props: Props) => {
     <div className="flex h-screen flex-col space-y-8 items-center justify-center text-center overflow-hidden">
       <BackgroundCircles />
       <Image
-        src={moi}
+        src={urlFor(pageInfo?.homeImage).url()}
         alt="me"
-        className="relative rounded-full h-32 w-32 mx-auto object-cover"
+        width={128}
+        height={128}
+        className="relative rounded-full mx-auto object-cover"
       />
 
       <div className="z-20">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
-          Software Engineer
+          {pageInfo?.role}
         </h2>
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
           <span className="mr-3">{text}</span>

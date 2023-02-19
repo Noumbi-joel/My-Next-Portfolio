@@ -4,10 +4,13 @@ import { motion } from "framer-motion";
 
 // comp
 import { ExperienceCard } from "..";
+import { Experience } from "../../typings";
 
-type Props = {};
+type Props = {
+  experiences: Experience[];
+};
 
-const Experience = (props: Props) => {
+const Experience = ({ experiences }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -20,9 +23,13 @@ const Experience = (props: Props) => {
       </h3>
 
       <div className="w-full sm:h-[70%] sm:mt-0 mt-32 flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin">
-        <ExperienceCard />
-        <ExperienceCard />
-        <ExperienceCard />
+        {experiences
+          .sort(function (a, b) {
+            return new Date(b?.dateStarted) - new Date(a?.dateStarted);
+          })
+          .map((experience) => (
+            <ExperienceCard key={experience?._id} experience={experience} />
+          ))}
       </div>
     </motion.div>
   );

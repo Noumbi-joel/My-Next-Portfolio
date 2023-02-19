@@ -4,10 +4,15 @@ import { motion } from "framer-motion";
 
 import { SocialIcon } from "react-social-icons";
 import Link from "next/link";
+import { File, Social } from "../../typings";
+import { getResumeUrl } from "../../utils/getResumeUrl";
 
-type Props = {};
+type Props = {
+  socials: Social[];
+  resume: File;
+};
 
-const Header = (props: Props) => {
+const Header = ({ socials, resume }: Props) => {
   return (
     <header className="sticky top-0 p-5 flex items-center justify-between max-w-7xl mx-auto z-20 xl:items-center">
       <motion.div
@@ -23,26 +28,14 @@ const Header = (props: Props) => {
         className="flex flex-row items-center"
       >
         {/* Social icons */}
-        <SocialIcon
-          url="https://twitter.com/MCorrradi"
-          fgColor="gray"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://www.linkedin.com/in/joel-noumbi"
-          fgColor="gray"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://github.com/Noumbi-joel"
-          fgColor="gray"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://www.instagram.com/mattcorradi"
-          fgColor="gray"
-          bgColor="transparent"
-        />
+        {socials.map((social) => (
+          <SocialIcon
+            key={social._id}
+            url={social.url}
+            fgColor="gray"
+            bgColor="transparent"
+          />
+        ))}
       </motion.div>
 
       <motion.div
@@ -57,7 +50,11 @@ const Header = (props: Props) => {
         }}
         className="flex flex-row items-center text-gray"
       >
-        <Link href="#resume" className="cursor-pointer uppercase text-sm text-gray-400">
+        <Link
+          target="_blank"
+          href={getResumeUrl(resume?.asset?._ref.split("-")[1])}
+          className="cursor-pointer uppercase text-sm text-gray-400"
+        >
           My resume 📰
         </Link>
       </motion.div>

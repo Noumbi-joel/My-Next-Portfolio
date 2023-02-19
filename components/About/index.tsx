@@ -1,10 +1,14 @@
 import React from "react";
 
 import { motion } from "framer-motion";
+import { PageInfo } from "../../typings";
+import { urlFor } from "../../lib/sanity";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-const About = (props: Props) => {
+const About = ({ pageInfo }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -29,9 +33,7 @@ const About = (props: Props) => {
           duration: 1.5,
         }}
         viewport={{ once: true }}
-        src={
-          "https://scontent-los2-1.xx.fbcdn.net/v/t1.6435-9/48415617_927193357668686_7951508151788896256_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=SmAoS_8W_0UAX8tofZC&_nc_ht=scontent-los2-1.xx&oh=00_AfCDPS-WCE86ufD8H7F2wwb6bIa_WwWUBtBsw-5Tqht1kw&oe=6412FF7E"
-        }
+        src={urlFor(pageInfo?.profilePic).url()}
         className="mt-28 object-cover md:mb-0 flex-shrink-0 w-40 h-40 sm:w-56 sm:h-56 rounded-full md:rounded-lg md:w-64 md:h-96 xl:w-[400px] xl:h-[400px]"
       />
 
@@ -42,13 +44,7 @@ const About = (props: Props) => {
           background
         </h4>
         <p className="text-sm">
-          Hey, my name is Joel Yvan Noumbi and I use Little Jacob as my nickname
-          because i like that GTA 4 character 😇. I've been coding for over 3
-          years now. As a Full Stack developer i've worked with startups to help
-          them build and scale their companies. With this passion i've now
-          published some real-world web and mobile projects for production
-          purpose. I'm very positively curious and like challenges that's what
-          help me to overcome myself in this world.
+          {pageInfo?.backgroundInformation}
         </p>
       </div>
     </motion.div>
