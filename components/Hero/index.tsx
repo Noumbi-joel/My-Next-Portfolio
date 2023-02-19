@@ -32,7 +32,8 @@ const Hero = ({ pageInfo }: Props) => {
         alt="me"
         width={128}
         height={128}
-        className="relative rounded-full mx-auto object-cover"
+        className="relative rounded-full mx-auto object-cover w-auto h-auto"
+        priority
       />
 
       <div className="z-20">

@@ -60,7 +60,8 @@ const Projects = ({ projects }: Props) => {
                   width={40}
                   height={40}
                   alt={tech?.title}
-                  className="object-cover"
+                  className="object-cover w-auto h-auto"
+                  priority
                 />
               ))}
             </div>
