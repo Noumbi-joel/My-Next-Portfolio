@@ -18,7 +18,13 @@ const Projects = ({ projects }: Props) => {
       </h3>
 
       <div className="w-full sm:mt-0 mt-10 relative flex overflow-x-scroll scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin overflow-y-hidden snap-x snap-mandatory z-20">
-        {projects?.map((project, i) => (
+        {projects?.sort(function (a,b) {
+            return (
+              new Date(b?._updatedAt).valueOf() -
+              new Date(a?._updatedAt).valueOf()
+            );
+          })
+          ?.map((project, i) => (
           <Link
             href={project?.linkToBuild}
             target="_blank"
